@@ -1,0 +1,34 @@
+﻿@model TeacherCMS.Models.ViewModel.LoginSignUpVM
+@{
+    ViewData["Title"] = "LogIn";
+   
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <form asp-controller="Home" asp-action="LogIn" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class=" text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+
+
+            <b>@ViewBag.message</b>
+        </form>
+    </div>
+</div>
+
+

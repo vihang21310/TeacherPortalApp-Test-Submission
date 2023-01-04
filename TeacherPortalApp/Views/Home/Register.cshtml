@@ -1,0 +1,92 @@
+﻿@model TeacherCMS.Models.ViewModel.LoginSignUpVM
+@{
+    ViewData["Title"] = "Register";
+   
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <form asp-controller="Home" asp-action="SignUp" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>  
+            
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class=" text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+
+
+                <input type="radio" name="Gender" value="M" />Male
+                <input type="radio" name="Gender" value="F" />Female
+
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Experience" class="control-label"></label>
+                <input asp-for="Experience" class="form-control" />
+                <span asp-validation-for="Experience" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JoiningDate" class="control-label"></label>
+                <input asp-for="JoiningDate" class="form-control" type="datetime" />
+                <span asp-validation-for="JoiningDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SubjectName" class="control-label"></label>
+
+
+                <select asp-for="SubjectName" asp-items="@(new SelectList(ViewBag.Subjects,"SubjectId", "SubjectName"))">
+                    <option selected disabled>Select Subject</option>
+                </select>
+
+                <span asp-validation-for="SubjectName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClassNo" class="control-label"></label>
+
+
+                <select asp-for="ClassNo" asp-items="@(new SelectList(ViewBag.Class,"ClassId", "ClassNo"))">
+                    <option selected disabled>Select Class</option>
+
+                </select>
+
+                <span asp-validation-for="ClassNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+
+
+            <b>@ViewBag.message</b>
+        </form>
+    </div>
+</div>
+
+
